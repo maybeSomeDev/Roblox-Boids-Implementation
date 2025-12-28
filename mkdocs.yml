@@ -1,0 +1,25 @@
+site_name: My Docs
+dev_addr: 'localhost:5000'
+theme:
+  name: material
+  logo: icon.png
+  favicon: icon.png
+
+  features:
+    - navigation.tabs
+    - toc.integrate 
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  
+nav:
+  - Home: index.md
+  - About: about.md
