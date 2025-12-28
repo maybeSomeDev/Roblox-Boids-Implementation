@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "Attributes": {
+      "rate": 1,
+      "clientDelayMultiplier": 1
+    }
+  }
+}

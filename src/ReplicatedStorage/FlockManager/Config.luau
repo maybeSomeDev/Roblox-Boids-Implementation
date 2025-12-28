@@ -1,0 +1,53 @@
+local m = {}
+
+--[[================================================================]]
+-- global configs ( please don't remove )
+
+m.global = {
+	serverSide = true,
+	-- 1 to update every frame, 2 to skip one
+	updateFrequency = 1,
+	-- the cell size multiplied by 3 must be >= to the bird's biggest Radius
+	gridCellSize = 16,
+	-- Recommended: 15-30
+	-- Min-Max: 5-300
+	generatedDirectionCount = 20, -- maybe 'numberOfRays' is a better name
+	numberOfWorkers = 16, -- /Actors
+	
+	flockCollisionGroup = "flockObjects"
+}
+
+m.network = {
+	enable = true,
+	updateRate = 0.15,
+	clientDelayMultiplier = 2.1,
+}
+
+--[[================================================================]]
+-- birds configs, you can store/move those to any other place
+
+m.testFile = {
+	-- [!] don't set speed to 0
+	speed = 25,
+	--fov = false, --> missing... (some) birds have a 360d vision anyway
+
+	avoidRadius = 5,
+	alignRadius = 25,
+	centerRadius = 45,
+
+	avoidIntensity = 2,
+	alignIntensity = 1.5,
+	cohesionIntensity = 1.2,
+
+	goalIntensity = 1.7,
+	
+	enableObstacleAvoidance = true,
+	avoidObstaclesIntensity = 1,
+	-- hitting an obstacle makes the bird ignore everything else but the Avoidance and ObstacleAvoidance
+	-- to focus only on not hitting its head
+	recoveryTime = 0.15, -- seconds
+	-- Multiplier: speed * obstacleRayLength = real obstacleRayLength
+	obstacleRayLength = 2,
+}
+
+return m
