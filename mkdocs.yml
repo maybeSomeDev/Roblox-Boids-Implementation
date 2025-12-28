@@ -1,4 +1,8 @@
 site_name: My Docs
+site_url: https://maybesomedev.github.io/Roblox-Boids-Implementation/
+repo_name: maybeSomeDev/Roblox-Boids-Implementation
+repo_url: https://github.com/maybeSomeDev/Roblox-Boids-Implementation
+
 dev_addr: 'localhost:5000'
 theme:
   name: material
