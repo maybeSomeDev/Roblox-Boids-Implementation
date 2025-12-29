@@ -17,6 +17,8 @@ local inUse = false
 
 local movers = {}
 
+local HIDE_POS = Vector3.new(0,100000,0)
+
 function loadMovers()
 	for _,child in moversFolder:GetChildren() do
 		movers[child.ClassName] = true
@@ -84,7 +86,7 @@ end
 
 function link(serverPart: BasePart, clientPart: BasePart)
 	serverPart:SetNetworkOwner(nil)
-
+	
 	table.insert(serverParts,serverPart)
 	table.insert(clientParts,clientPart)	
 end 
@@ -95,6 +97,7 @@ function mirrorToServer(clientPart: BasePart)
 	local serverPart = clientPart:Clone()
 	local parent = workspace.CurrentCamera
 	
+	clientPart:PivotTo(CFrame.new(HIDE_POS))
 	cleanTheInside(clientPart)
 	clientPart.Anchored = true
 	
@@ -108,9 +111,10 @@ function mirrorToClient(serverPart: BasePart, newParent: Folder): BasePart
 	local clientPart = serverPart:Clone()
 	local parent = if (newParent and typeof(newParent) == "Instance") then newParent else workspace	
 
+	clientPart:PivotTo(CFrame.new(HIDE_POS))
 	cleanTheInside(clientPart)
 	part.Anchored = true
-	
+
 	clientPart.Parent = parent
 	link(serverPart,clientPart)
 	

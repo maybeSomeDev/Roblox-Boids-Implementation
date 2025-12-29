@@ -1,8 +1,8 @@
 {
   "properties": {
     "Attributes": {
-      "radius": 10,
-      "count": 120
+      "count": 120,
+      "radius": 30
     }
   }
 }
