@@ -8,10 +8,10 @@ m.global = {
 	-- 1 to update every frame, 2 to skip one
 	updateFrequency = 1,
 	-- the cell size multiplied by 3 must be >= to the bird's biggest Radius
-	gridCellSize = 16,
+	gridCellSize = 15,
 	-- Recommended: 15-30
 	-- Min-Max: 5-300
-	generatedDirectionCount = 20, -- maybe 'numberOfRays' is a better name
+	generatedDirectionCount = 30, -- maybe 'numberOfRays' is a better name
 	numberOfWorkers = 16, -- /Actors
 	
 	flockCollisionGroup = "flockObjects"
@@ -31,21 +31,21 @@ m.testFile = {
 	speed = 25,
 	--fov = false, --> missing... (some) birds have a 360d vision anyway
 
-	avoidRadius = 5,
-	alignRadius = 25,
+	avoidRadius = 6,
+	alignRadius = 35,
 	centerRadius = 45,
 
 	avoidIntensity = 2,
 	alignIntensity = 1.5,
 	cohesionIntensity = 1.2,
 
-	goalIntensity = 1.7,
+	goalIntensity = 7,
 	
 	enableObstacleAvoidance = true,
-	avoidObstaclesIntensity = 1,
+	avoidObstaclesIntensity = 30,
 	-- hitting an obstacle makes the bird ignore everything else but the Avoidance and ObstacleAvoidance
 	-- to focus only on not hitting its head
-	recoveryTime = 0.15, -- seconds
+	recoveryTime = 0.1, -- seconds
 	-- Multiplier: speed * obstacleRayLength = real obstacleRayLength
 	obstacleRayLength = 2,
 }
