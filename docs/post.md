@@ -22,7 +22,7 @@
 <iframe width="640" height="360" src="https://www.youtube.com/embed/SJ3V-Il7UO4" title="Roblox Boids Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Example Usage 
-[More Eaxmples](about.md)
+<!-- [More Eaxmples](about.md) -->
 ```lua
 -- main
 local flockModule = game.ReplicatedStorage.FlockManager
@@ -39,7 +39,6 @@ manager:start()
 ```
 
 ```lua
--- config
 m.testFile = {
 	speed = 25,
 
@@ -55,10 +54,7 @@ m.testFile = {
 	
 	enableObstacleAvoidance = true,
 	avoidObstaclesIntensity = 30,
-	-- hitting an obstacle makes the bird ignore all rules other than Avoidance and ObstacleAvoidance
-	-- to focus only on not hitting its head
-	recoveryTime = 0.1, -- seconds
-	-- Multiplier: speed * obstacleRayLength = real RayLength
+	recoveryTime = 0.1,
 	obstacleRayLength = 2,
 }
 ```

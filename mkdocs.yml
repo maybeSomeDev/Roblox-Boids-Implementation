@@ -3,8 +3,12 @@ site_url: https://maybesomedev.github.io/Roblox-Boids-Implementation/
 repo_name: maybeSomeDev/Roblox-Boids-Implementation
 repo_url: https://github.com/maybeSomeDev/Roblox-Boids-Implementation
 
+extra_css:
+  - extra.css
+
 markdown_extensions:
   - attr_list
+  - md_in_html
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -12,8 +16,9 @@ markdown_extensions:
   # [details/summary=] block https://facelessuser.github.io/pymdown-extensions/extensions/details/
   # Usage: ??? , ???+
   - pymdownx.details
+  # same as .details but not collapsible https://squidfunk.github.io/mkdocs-material/reference/admonitions/
   # Usage: !!!
-  - admonition # same as .details but not collapsible https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  - admonition
   - pymdownx.inlinehilite
   - pymdownx.superfences
 
@@ -25,23 +30,16 @@ theme:
 
   features:
     - navigation.tabs
-    - toc.integrate 
     - content.code.copy
 
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
   
 nav:
-  - Home: home.md
-  - About: about.md
-  - Test: test.md
+  - Home:
+    - Setup: setup.md
+    - Post: post.md
+  - API:
+    - API Reference: api.md
+    - Data Types: data.md
     
