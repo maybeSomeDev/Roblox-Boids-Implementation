@@ -9,6 +9,11 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  # [details/summary=] block https://facelessuser.github.io/pymdown-extensions/extensions/details/
+  # Usage: ??? , ???+
+  - pymdownx.details
+  # Usage: !!!
+  - admonition # same as .details but not collapsible https://squidfunk.github.io/mkdocs-material/reference/admonitions/
   - pymdownx.inlinehilite
   - pymdownx.superfences
 
@@ -36,9 +41,7 @@ theme:
         name: Switch to system preference
   
 nav:
-  - 'Section 1':
-    - Home: index.md
-  - 'Section 2':
-    - About: about.md
-    - Test: test.md
+  - Home: home.md
+  - About: about.md
+  - Test: test.md
     
