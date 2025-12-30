@@ -257,13 +257,32 @@ function collect(self: manager)
 end
 
 --[[================================================================]]
--- private utils
-function getObjectByName(name: string): t.unit
+-- utils
+
+function getObjectByName(name: string | Instance): t.unit?
+	if typeof(name) == "Instance" then
+		name = name.Name
+	end
 	return allUnits[name]
 end
 
-function getObjectConfig(name: string): t.config
+function getObjectConfig(name: string | Instance): t.config?
+	if typeof(name) == "Instance" then
+		name = name.Name
+	end
 	return unitsConfig[name]
+end
+
+function setObjectConfig(name: string | Instance, config: t.config): boolean
+	if typeof(name) == "Instance" then
+		name = name.Name
+	end
+	if allUnits[name] then
+		unitsConfig[name] = config
+		sharedConfig[name] = config
+		return true
+	end
+	return false
 end
 
 --[[================================================================]]
@@ -360,5 +379,6 @@ return {
 	new = new,
 
 	getObjectByName = getObjectByName,
-	getConfigByName = getObjectConfig
+	getConfigByName = getObjectConfig,
+	setObjectConfig = setObjectConfig
 }
