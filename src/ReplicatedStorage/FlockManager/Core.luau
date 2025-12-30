@@ -176,9 +176,9 @@ function start(
 		update("avoidObs", _info)
 	end
 
-	for _, unit: string in group do
-		if unit == me then continue end
-		local otherPos = privateConfig.positionsList[unit].Position
+	for _, boid: string in group do
+		if boid == me then continue end
+		local otherPos = privateConfig.positionsList[boid].Position
 		local distance, difference = utils.distance(myPos, otherPos)
 		if not (distance > 0.01) then continue end
 		debug.profilebegin("basic rules")
@@ -194,7 +194,7 @@ function start(
 		local cohesionResult = getCohesion(distance, otherPos, config)
 		update("cohesion", cohesionResult)
 
-		local alignResult = getAlign(unit, distance, config, privateConfig)
+		local alignResult = getAlign(boid, distance, config, privateConfig)
 		update("align", alignResult)
 		debug.profileend()
 	end

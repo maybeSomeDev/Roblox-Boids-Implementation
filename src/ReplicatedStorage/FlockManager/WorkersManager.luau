@@ -71,7 +71,7 @@ local privateConfig = {} :: t.privateConfig
 local forcesList = {} :: { [string]: Vector3 } -- in privateConfig
 local positionsList = {} :: { [string]: Vector3 } -- ...
 local recoveryList = {} :: { [string]: number }
-local unitsConfig = {} :: t.config
+local boidsConfig = {} :: t.config
 
 local allGoals = {} :: { [string]: Vector3 }
 
@@ -85,7 +85,7 @@ function actor.init()
 	forcesList = TableRegistry:GetSharedTable("forcesList")
 	positionsList = TableRegistry:GetSharedTable("positionsList")
 	recoveryList = TableRegistry:GetSharedTable("recoveryList")
-	unitsConfig = TableRegistry:GetSharedTable("unitsConfig")
+	boidsConfig = TableRegistry:GetSharedTable("boidsConfig")
 	--allCells = TableRegistry:GetSharedTable("allCells")
 	allGoals = TableRegistry:GetSharedTable("allGoals")
 end
@@ -93,16 +93,15 @@ end
 function actor.excuteTask(name: string,group: {string}, goal: Vector3?)
 	task.desynchronize()
 	
-	local config = unitsConfig[name]
+	local config = boidsConfig[name]
 	goal = allGoals[name] or goal
 	
 	privateConfig = {
 		["positionsList"] = positionsList,
 		["forcesList"] = forcesList,
-		["unitsConfig"] = unitsConfig,
+		["boidsConfig"] = boidsConfig,
 		["recoveryList"] = recoveryList,
 	}
-	
 	
 	local newVelocity = core.start(name,group, config, privateConfig, goal)
 	results[name] = newVelocity

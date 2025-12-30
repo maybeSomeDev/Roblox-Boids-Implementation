@@ -17,8 +17,8 @@ local networkReplicator = require("@self/NetworkReplicator")
 
 local t = require("@self/t")
 
-local allUnits = {} :: { [string]: t.unit }
-local allCells = {} :: { [string]: typeof(allUnits) }
+local allBoids = {} :: { [string]: t.boid }
+local allCells = {} :: { [string]: typeof(allBoids) }
 
 local canReplicate = (config.network.enable and config.global.serverSide)
 
@@ -28,7 +28,7 @@ local staticGoals = {} :: { [string]: Vector3 }
 local dynamicGoals = {} :: { [string]: () -> (Vector3) }
 
 local positionsList = {} :: { [string]: Vector3 }
-local unitsConfig = {} :: t.config
+local boidsConfig = {} :: t.config
 
 local sharedForces: SharedTable = nil :: { [string]: Vector3 }
 local sharedPositions: SharedTable = nil :: { [string]: Vector3 }
@@ -54,7 +54,7 @@ function registerAll()
 	TableRegistry:SetSharedTable("forcesList", sharedForces)
 	TableRegistry:SetSharedTable("positionsList", sharedPositions)
 	TableRegistry:SetSharedTable("recoveryList", sharedRecovery)
-	TableRegistry:SetSharedTable("unitsConfig", sharedConfig)
+	TableRegistry:SetSharedTable("boidsConfig", sharedConfig)
 	--TableRegistry:SetSharedTable("allCells", sharedCells)
 	TableRegistry:SetSharedTable("allGoals", sharedGoals)
 end
@@ -81,22 +81,25 @@ type manager = typeof(new(...))
 
 --[[================================================================]]
 
-function manager.add(self: manager, objects: { t.unit }, unitConfig: t.config?)
+function manager.add(self: manager, boids: { t.boid }, boidConfig: t.config?)
 	-- convert to table
-	local convert: { t.unit } = if typeof(objects) == "table" then objects else { objects }
-	unitConfig = unitConfig or self.config
+	local convert: { t.boid } = if typeof(boids) == "table" then boids else { boids }
+	boidConfig = boidConfig or self.config
 
-	for _, clientUnit in convert do
-		local name = clientUnit.Name
-		local serverUnit = clientUnit
+	for _, clientBoid in convert do
+		local name = clientBoid.Name
+		local serverBoid = clientBoid
 		if canReplicate then
-			serverUnit = networkReplicator.mirrorToServer(clientUnit)
+			serverBoid = networkReplicator.mirrorToServer(clientBoid)
 		end
+		
+		serverBoid.CollisionGroup = config.global.flockCollisionGroup
+		
 		local clientConnection
 		local serverConnection
 
-		if serverUnit then
-			serverConnection = serverUnit.Destroying:Once(function()
+		if serverBoid then
+			serverConnection = serverBoid.Destroying:Once(function()
 				if clientConnection then
 					clientConnection:Disconnect()
 					clientConnection = nil
@@ -105,7 +108,7 @@ function manager.add(self: manager, objects: { t.unit }, unitConfig: t.config?)
 			end)
 		end
 
-		clientConnection = clientUnit.Destroying:Once(function()
+		clientConnection = clientBoid.Destroying:Once(function()
 			if serverConnection then
 				serverConnection:Disconnect()
 				serverConnection = nil
@@ -113,11 +116,11 @@ function manager.add(self: manager, objects: { t.unit }, unitConfig: t.config?)
 			self:remove(name,true)
 		end)
 
-		allUnits[name] = serverUnit
+		allBoids[name] = serverBoid
 
 		table.insert(self.group,name)
-		unitsConfig[name] = unitConfig
-		sharedConfig[name] = unitConfig
+		boidsConfig[name] = boidConfig
+		sharedConfig[name] = boidConfig
 	end
 
 	return self
@@ -158,7 +161,7 @@ function updatePrivateConfig(self: manager)
 	-- init values, they'll get updated somewhere else depending on the data
 	if manager.firstRun then
 		for _, name: string in self.group do -- private config
-			local getObject: t.unit = allUnits[name]
+			local getObject: t.boid = allBoids[name]
 			if not getObject then return end
 
 			sharedPositions[name] = getObject.CFrame
@@ -259,23 +262,23 @@ end
 --[[================================================================]]
 -- utils
 
-function getObjectByName(name: string): t.unit?
-	return allUnits[name]
+function getObjectByName(name: string): t.boid?
+	return allBoids[name]
 end
 
 function getObjectConfig(name: string | Instance): t.config?
 	if typeof(name) == "Instance" then
 		name = name.Name
 	end
-	return unitsConfig[name]
+	return boidsConfig[name]
 end
 
 function setObjectConfig(name: string | Instance, config: t.config): boolean
 	if typeof(name) == "Instance" then
 		name = name.Name
 	end
-	if allUnits[name] then
-		unitsConfig[name] = config
+	if allBoids[name] then
+		boidsConfig[name] = config
 		sharedConfig[name] = config
 		return true
 	end
@@ -330,14 +333,14 @@ function manager.remove(self: manager, name: string, destroy: boolean?)
 		return
 	end
 	
-	local unit = getObjectByName(name)
-	if not unit then
+	local boid = getObjectByName(name)
+	if not boid then
 		return
 	end
 
-	removeFrom(allUnits,name)
+	removeFrom(allBoids,name)
 	removeFrom(positionsList,name)
-	removeFrom(unitsConfig,name)
+	removeFrom(boidsConfig,name)
 	
 	removeFrom(sharedPositions,name)
 	removeFrom(sharedForces,name)
@@ -352,9 +355,9 @@ function manager.remove(self: manager, name: string, destroy: boolean?)
 	end
 	
 	if canReplicate then
-		networkReplicator.removePart(unit, destroy)
+		networkReplicator.removePart(boid, destroy)
 	elseif destroy then
-		unit:Destroy()
+		boid:Destroy()
 	end
 end
 

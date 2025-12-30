@@ -1,4 +1,4 @@
-export type unit = Part & {
+export type boid = Part & {
 	["LinearVelocity"]: LinearVelocity, -- child
 }
 
@@ -9,15 +9,13 @@ export type manager = {
 }
 
 export type group = {
-	-- name of the object, used to access its info (from privateConfig)
-	-- or to access the object itself (unit)
 	{ string }
 }
 
 export type privateConfig = {
 	forcesList: { [string]: Vector3 },
 	positionsList: { [string]: Vector3 },
-	unitsConfig: { [string]: config },
+	boidsConfig: { [string]: config },
 	recoveryList: { [string]: number },
 }
 
