@@ -20,27 +20,17 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 - 1
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-* 111111
-* 1
-
-* 1
-
- * 1
-1
-* 1
-- 1* 111111
-* 1
-
-* 1
-
- * 1
-1
-* 1
-- 1
+ ``` lua title="Test.lua" hl_lines="2 3"
+ local test = True
+ function None()
+    require test
+    if then do
+ end
+ ```
 
 # Next Page
     For full documentation visit 
+
+    
+[Subscribe to our newsletter](#){.md-button .md-button--primary}
+{: align="center"}

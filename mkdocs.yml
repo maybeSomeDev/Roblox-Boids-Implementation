@@ -1,7 +1,16 @@
-site_name: My Docs
+site_name: Docs
 site_url: https://maybesomedev.github.io/Roblox-Boids-Implementation/
 repo_name: maybeSomeDev/Roblox-Boids-Implementation
 repo_url: https://github.com/maybeSomeDev/Roblox-Boids-Implementation
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
 
 dev_addr: 'localhost:5000'
 theme:
@@ -12,6 +21,8 @@ theme:
   features:
     - navigation.tabs
     - toc.integrate 
+    - content.code.copy
+
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default 
@@ -25,5 +36,9 @@ theme:
         name: Switch to system preference
   
 nav:
-  - Home: index.md
-  - About: about.md
+  - 'Section 1':
+    - Home: index.md
+  - 'Section 2':
+    - About: about.md
+    - Test: test.md
+    
