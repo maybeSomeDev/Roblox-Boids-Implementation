@@ -171,7 +171,7 @@ function updatePrivateConfig(self: manager)
 	
 	for name,goal in staticGoals do
 		sharedGoals[name] = goal
-		staticGoals[name] = nil
+		removeFrom(staticGoals,name)
 	end
 	
 	if self.getGoal then
@@ -259,10 +259,7 @@ end
 --[[================================================================]]
 -- utils
 
-function getObjectByName(name: string | Instance): t.unit?
-	if typeof(name) == "Instance" then
-		name = name.Name
-	end
+function getObjectByName(name: string): t.unit?
 	return allUnits[name]
 end
 
@@ -308,16 +305,14 @@ function manager.removeGoal(self: manager, name: string?)
 		removeFrom(sharedGoals,name)
 		removeFrom(staticGoals,name)
 		removeFrom(dynamicGoals,name)
-	else
+	else -- manager goals
 		self._goal = nil
 		self.getGoal = nil
 	end
 end
 
 function removeFrom(t, name)
-	if t[name] then
-		t[name] = nil
-	end
+	t[name] = nil
 end
 
 function manager.pause(self: manager)
@@ -329,13 +324,17 @@ function manager.pause(self: manager)
 	end
 end
 
--- remove a bird
 function manager.remove(self: manager, name: string, destroy: boolean?)
 	if not name or typeof(name) ~= "string" then
 		warn("passed arg (name) is not a string:",typeof(name))
 		return
 	end
+	
 	local unit = getObjectByName(name)
+	if not unit then
+		return
+	end
+
 	removeFrom(allUnits,name)
 	removeFrom(positionsList,name)
 	removeFrom(unitsConfig,name)
@@ -346,13 +345,15 @@ function manager.remove(self: manager, name: string, destroy: boolean?)
 	removeFrom(sharedConfig,name)
 	
 	self:removeGoal(name)
+	
 	local index = table.find(self.group,name)
 	if index then
 		table.remove(self.group,index)
 	end
+	
 	if canReplicate then
 		networkReplicator.removePart(unit, destroy)
-	else
+	elseif destroy then
 		unit:Destroy()
 	end
 end
@@ -364,8 +365,7 @@ function manager.clean(self: manager, destroy: boolean?)
 		self:remove(name,destroy)
 	end
 	
-	self._goal = nil
-	self._getGoal = nil
+	self:removeGoal()
 end
 
 registerAll()

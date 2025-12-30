@@ -27,9 +27,7 @@ m.network = {
 -- birds configs, you can store/move those to any other place
 
 m.testFile = {
-	-- [!] don't set speed to 0
 	speed = 25,
-	--fov = false, --> missing... (some) birds have a 360d vision anyway
 
 	avoidRadius = 6,
 	alignRadius = 35,
@@ -43,10 +41,10 @@ m.testFile = {
 	
 	enableObstacleAvoidance = true,
 	avoidObstaclesIntensity = 30,
-	-- hitting an obstacle makes the bird ignore everything else but the Avoidance and ObstacleAvoidance
+	-- hitting an obstacle makes the bird ignore all rules other than Avoidance and ObstacleAvoidance
 	-- to focus only on not hitting its head
 	recoveryTime = 0.1, -- seconds
-	-- Multiplier: speed * obstacleRayLength = real obstacleRayLength
+	-- Multiplier: speed * obstacleRayLength = real RayLength
 	obstacleRayLength = 2,
 }
 

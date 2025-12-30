@@ -26,25 +26,6 @@ function new()
 		return goal.Position
 	end)
 
-	--youngManager:addStaticGoal(goal.Position,newGroup[#newGroup].Name)
-
-	--task.delay(5,function()
-	--	for i,v in newGroup do
-	--		local getObject = flockManager._getObjectByName(v.Name)
-	--		getObject:Destroy()
-	--		youngManager:remove(v.Name)
-	--		youngManager:clean()
-			
-	--	end
-	--end)
-
-	--task.delay(5,function()
-	--	youngManager:pause()
-	--	print("stopped")
-	--	task.wait(2.5)
-	--	youngManager:start()
-	--end)
-
 	manager:start()
 end
 

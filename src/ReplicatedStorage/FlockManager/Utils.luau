@@ -6,6 +6,7 @@ local globalConfig = config.global
 local directions = {} :: { Vector3 }
 
 local _params = RaycastParams.new()
+_params.CollisionGroup = globalConfig.flockCollisionGroup
 
 -- generate sphere-shaped directions
 -- source of the source: https://stackoverflow.com/questions/9600801
