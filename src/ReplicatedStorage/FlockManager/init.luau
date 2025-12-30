@@ -8,10 +8,10 @@ local TableRegistry = game:GetService("SharedTableRegistry")
 local manager = {}
 manager.__index = manager
 
-local core = require("@self/Core")
+-- local core = require("@self/Core")
 local utils = require("@self/Utils")
 local config = require("@self/Config")
-local grid = require("@self/Gird")
+local grid = require("@self/Grid")
 local workersManager = require("@self/WorkersManager").m
 local networkReplicator = require("@self/NetworkReplicator")
 

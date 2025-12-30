@@ -79,7 +79,7 @@ local results: SharedTableRegistry
 
 function actor.init()
 	core = require("./Core")
-	--grid = require("./Gird")
+
 	results = TableRegistry:GetSharedTable("updated")
 
 	forcesList = TableRegistry:GetSharedTable("forcesList")
