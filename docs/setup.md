@@ -12,7 +12,7 @@ Spawn your Boid part and ensure that it has a `LinearVelocity` instance named 'L
     Each Boid must have a unique name.
 
 !!! tip
-    You can grab simple the spawner used in the test place from the repo, or by editing the uncopylocked place.
+    You can grab the simple spawner used in the test place from the repo.
 
 ## The Scripts
 
@@ -35,9 +35,9 @@ manager:start()
 ```
 
 !!! info
-    Don't forget to change the <mark>config.global</mark> if you want to use the module on the client.
+    Don't forget to change the `config.global` if you want to use the module on the client.
 
 ## Network Replicator
 
 Enabling the network replicator doesn't require extra steps, just flipping it in the configs.
-The Receiver script <mark>flockManager.NetworkReplicator.Receiver</mark>will handle the replication automatically.
+The Receiver script (`flockManager.NetworkReplicator.Receiver`) will handle the replication automatically.
