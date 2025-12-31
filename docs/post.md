@@ -21,43 +21,6 @@
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/SJ3V-Il7UO4" title="Roblox Boids Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Example Usage 
-
-```lua
--- main
-local flockModule = game.ReplicatedStorage.FlockManager
-local flockManager = require(flockModule)
-local config = require(flockModule.Config)
-
-local manager = flockManager.new(config.testFile)
-
-local birds = workspace.Birds:GetChildren() :: { Part } -- with a LinearVelocity child
-
-manager:add(birds)
-
-manager:start()
-```
-
-```lua
-m.testFile = {
-	speed = 25,
-
-	avoidRadius = 6,
-	alignRadius = 35,
-	centerRadius = 45,
-
-	avoidIntensity = 2,
-	alignIntensity = 1.5,
-	cohesionIntensity = 1.2,
-
-	goalIntensity = 7,
-	
-	enableObstacleAvoidance = true,
-	avoidObstaclesIntensity = 30,
-	recoveryTime = 0.1,
-	obstacleRayLength = 2,
-}
-```
 ## Features
 - The core 3 rules (separation, alignment, cohesion)
 - Obstacle avoidance
