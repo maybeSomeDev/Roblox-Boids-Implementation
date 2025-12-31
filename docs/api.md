@@ -1,5 +1,4 @@
-[boid]: https://github.com/maybeSomeDev/Roblox-Boids-Implementation/blob/main/src/init.lua
-[config]: https://github.com/maybeSomeDev/Roblox-Boids-Implementation/blob/main/src/init.lua
+[config]: configs.md#boids-configs
 
 ## FlockManager {: .class}
 
@@ -39,7 +38,7 @@ FlockManager.getObjectByName(boidPart.Name)
         name : <spin class="normal-data">string</spin>
     Returns
     !!! return ""
-        boid : [boid][boid]{: .data }
+        boid : <spin class="normal-data">boid</spin>
 ---
 <!--////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 ### .getObjectConfig {: .method }
@@ -96,7 +95,7 @@ Adds a new Boid to the group.
 !!! method-child ""
     Parameters
     !!! params ""
-        boids : [{boid} | boid][boid]{: .data }
+        boids : <spin class="normal-data">boid</spin>
         ___
         config : [config][config]{: .data }
 

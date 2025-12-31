@@ -22,7 +22,7 @@
 <iframe width="640" height="360" src="https://www.youtube.com/embed/SJ3V-Il7UO4" title="Roblox Boids Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Example Usage 
-<!-- [More Eaxmples](about.md) -->
+
 ```lua
 -- main
 local flockModule = game.ReplicatedStorage.FlockManager
@@ -75,6 +75,9 @@ m.testFile = {
     - Moving from `LinearVelocity` to `CFrame` based movement
     - Better steering/ smoother turning
     - More optimizations 
+		- Spreading the math across multiple frames (instead executing everything/Boid at 60 FPS).
+
+			Sacrificing a bit of accuracy to get a big performance gain.
 
 
 !!! bug "Known Issues"

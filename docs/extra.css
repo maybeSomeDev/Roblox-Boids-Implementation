@@ -38,6 +38,19 @@
     background-color: rgb(54, 34, 78);
 }
 
+/* Overwrite the default tables */
+.md-typeset table:not([class]) td {
+    /* top right bottom left */
+    padding: 10px;
+    color: rgb(216, 216, 216);
+}
+
+.md-typeset td, strong {
+    /* top right bottom left */
+    color: rgb(255, 109, 109);
+}
+
+
 .md-typeset h2.class {
     font-size: 30px;
     font-weight: 700;

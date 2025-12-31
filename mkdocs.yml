@@ -3,6 +3,8 @@ site_url: https://maybesomedev.github.io/Roblox-Boids-Implementation/
 repo_name: maybeSomeDev/Roblox-Boids-Implementation
 repo_url: https://github.com/maybeSomeDev/Roblox-Boids-Implementation
 
+dev_addr: 'localhost:5000'
+
 extra_css:
   - extra.css
 
@@ -22,7 +24,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.superfences
 
-dev_addr: 'localhost:5000'
 theme:
   name: material
   logo: icon.png
@@ -39,7 +40,10 @@ nav:
   - Home:
     - Setup: setup.md
     - Post: post.md
+
   - API:
     - API Reference: api.md
     - Data Types: data.md
+
+  - Configs: configs.md
     
