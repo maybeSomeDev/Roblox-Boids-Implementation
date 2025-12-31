@@ -5,9 +5,6 @@
     "Players": {
       "$path": "src/Client/Players"
     },
-    "ReplicatedFirst": {
-      "$path": "src/Client/ReplicatedFirst"
-    },
     "ReplicatedStorage": {
       "$path": "src/ReplicatedStorage"
     },

@@ -5,8 +5,8 @@ local m = {}
 
 m.global = {
 	serverSide = true,
-	-- 1 to update every frame, 2 to skip one
-	updateFrequency = 1,
+	-- Numbers of frames to skip ( 0 = update the boids every frame )
+	updateFrequency = 0,
 	-- the cell size multiplied by 3 must be >= to the bird's biggest Radius
 	gridCellSize = 15,
 	-- Recommended: 15-30
@@ -40,7 +40,7 @@ m.testFile = {
 	goalIntensity = 7,
 	
 	enableObstacleAvoidance = true,
-	avoidObstaclesIntensity = 30,
+	avoidObstaclesIntensity = 10,
 	-- hitting an obstacle makes the bird ignore all rules other than Avoidance and ObstacleAvoidance
 	-- to focus only on not hitting its head
 	recoveryTime = 0.1, -- seconds

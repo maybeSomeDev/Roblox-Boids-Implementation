@@ -126,7 +126,7 @@ function manager.add(self: manager, boids: { t.boid }, boidConfig: t.config?)
 	return self
 end
 
-local steps = math.clamp(config.global.updateFrequency, 1, 60)
+local steps = math.clamp(config.global.updateFrequency+1, 1, 60)
 
 function manager.start(self: manager)
 	manager.firstRun = true
@@ -134,7 +134,6 @@ function manager.start(self: manager)
 
 	workersManager.initActors()
 	
-	-- TODO:
 	local _tick = 1
 	local connection = RunService.Stepped:Connect(function()
 		if (_tick % steps) == 0 then

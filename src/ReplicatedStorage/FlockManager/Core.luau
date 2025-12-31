@@ -201,7 +201,7 @@ function start(
 
 	applyWeights()
 	if blockedPath then
-		clearAllBut({ "avoidObs","avoid"})
+		clearAllBut({ "avoidObs"})
 	end
 	local finalVelocity: Vector3 = applyIntensities()
 
