@@ -1,16 +1,14 @@
+## Links
+  
+- [Docs](https://maybesomedev.github.io/Roblox-Boids-Implementation/)
+
+- [Devforum Post](https://github.com/maybeSomeDev/Roblox-Boids-Implementation)
+
+- <a href="https://www.roblox.com/games/111714118557618" title="Uncopylocked">Test Place</a>
+
 ## Introduction
 
 [Boids](https://en.wikipedia.org/wiki/Boids) is an algorithm developed by [Craig Reynolds](https://en.wikipedia.org/wiki/Craig_Reynolds_(computer_graphics)) with the aim of replicating the flocking behavior of birds, fish, and herding animals.
-
-## Links
-
-[Docs](https://maybesomedev.github.io/Roblox-Boids-Implementation/)
-
-[Devforum Post](https://github.com/maybeSomeDev/Roblox-Boids-Implementation)
-
-<a href="https://www.roblox.com/games/111714118557618" title="Uncopylocked">Test Place</a>
-
-[Download .rbxmx](https://github.com/maybeSomeDev/Roblox-Boids-Implementation/releases/latest/download/FlockManager.rbxmx)
 
 ##### Use Cases
 - Schools of fish, a flock of birds, or insect swarms
