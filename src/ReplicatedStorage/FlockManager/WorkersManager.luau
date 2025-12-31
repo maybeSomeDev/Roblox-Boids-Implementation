@@ -26,7 +26,9 @@ function m.giveTask(objectName,group, goal)
 	if lastUsed > workersCount then
 		lastUsed = 1
 	end
-
+	if not allWorkers[lastUsed] then
+		return
+	end
 	allWorkers[lastUsed]:SendMessage("start", objectName,group, goal)
 
 	lastUsed += 1
