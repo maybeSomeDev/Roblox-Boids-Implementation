@@ -28,7 +28,7 @@ function getAvoidance(distance, difference, config): modeResult?
 end
 
 function getCohesion(distance, otherPos, config): modeResult?
-	if distance <= config.centerRadius then
+	if distance <= config.cohesionRadius then
 		local dir = otherPos
 
 		return {

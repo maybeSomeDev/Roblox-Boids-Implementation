@@ -32,7 +32,7 @@ function cleanOldSnapshots(object,fromIndex: number)
 	for index=fromIndex,1,-1 do
 		local data = snapshots[index]
 
-		if data and syncedTime - data._time > 1.5 then
+		if data and syncedTime - data._time > 3 then
 			table.remove(snapshots,index)
 		end
 	end

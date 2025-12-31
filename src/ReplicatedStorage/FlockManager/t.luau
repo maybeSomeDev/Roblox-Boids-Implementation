@@ -24,7 +24,7 @@ export type config = {
 
 	avoidRadius: number,
 	alignRadius: number,
-	centerRadius: number,
+	cohesionRadius: number,
 
 	avoidIntensity: number,
 	alignIntensity: number,

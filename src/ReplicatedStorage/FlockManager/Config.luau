@@ -20,7 +20,7 @@ m.global = {
 m.network = {
 	enable = true,
 	updateRate = 0.15,
-	clientDelayMultiplier = 2.1,
+	clientDelayMultiplier = 15.1,
 }
 
 --[[================================================================]]
@@ -31,7 +31,7 @@ m.testFile = {
 
 	avoidRadius = 6,
 	alignRadius = 35,
-	centerRadius = 45,
+	cohesionRadius = 45,
 
 	avoidIntensity = 2,
 	alignIntensity = 1.5,

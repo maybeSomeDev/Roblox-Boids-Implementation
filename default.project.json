@@ -2,23 +2,14 @@
   "name": "Boids",
   "tree": {
     "$className": "DataModel",
-    "Players": {
-      "$path": "src/Client/Players"
-    },
     "ReplicatedStorage": {
       "$path": "src/ReplicatedStorage"
     },
     "ServerScriptService": {
       "$path": "src/ServerScriptService"
     },
-    "ServerStorage": {
-      "$path": "src/ServerStorage"
-    },
     "StarterGui": {
       "$path": "src/Client/StarterGui"
-    },
-    "StarterPack": {
-      "$path": "src/Client/StarterPack"
     },
     "StarterPlayer": {
       "$path": "src/Client/StarterPlayer"
