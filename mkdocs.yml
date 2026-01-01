@@ -38,7 +38,7 @@ theme:
   
 nav:
   - Home:
-    - Setup: setup.md
+    - Setup: index.md
     - Post: post.md
 
   - API:
