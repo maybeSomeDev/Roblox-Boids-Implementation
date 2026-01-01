@@ -1,0 +1,113 @@
+/* Main page theme */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: rgba(19, 20, 25);
+    --md-default-bg-color: rgb(25, 28, 36);
+}
+
+.md-tabs {
+    background-color: rgba(19, 20, 25, 0.822);
+    color: rgb(247, 247, 247);
+}
+
+/* Hmmm... I hope no one saw me wasting time */
+/* Code */
+[data-md-color-scheme="slate"] {
+    /* Var Name */
+    --md-code-hl-variable-color: rgb(220, 220, 220);
+    /* Var Name Tail */
+    --md-code-fg-color: rgb(220, 220, 220);
+    /* Scroll */
+    --md-default-fg-color--lighter: rgba(207, 207, 207, 0.884);
+    /* Methods? */
+    --md-code-hl-constant-color: rgb(82, 215, 200);
+    /* keywords: func, local */
+    --md-code-hl-keyword-color: rgb(186, 123, 204);
+    /* Func Name */
+    --md-code-hl-function-color: rgb(250, 228, 170);
+    --md-code-hl-operator-color: rgb(186, 123, 204);
+    --md-code-hl-string-color: rgb(175, 255, 118);
+    --md-code-hl-number-color: rgb(230, 162, 111);
+    --md-code-hl-comment-color: rgba(118, 255, 129, 0.452);
+    /* Bool */
+    --md-code-hl-name-color: rgb(232, 195, 125);
+}
+/* Overwrite the default <mark> */
+.md-typeset mark {
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: rgb(54, 34, 78);
+}
+
+/* Overwrite the default tables */
+.md-typeset table:not([class]) td {
+    /* top right bottom left */
+    padding: 10px;
+    color: rgb(216, 216, 216);
+}
+
+.md-typeset td, strong {
+    /* top right bottom left */
+    color: rgb(255, 109, 109);
+}
+
+
+.md-typeset h2.class {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.md-typeset h3.method {
+    font-size: 22px;
+    font-weight: 500;
+    color: rgb(230, 230, 230);
+}
+/* Method/Class description */
+.md-typeset .info{
+    font-size: 17px;
+}
+
+/* Pramaters, Returns text */
+.md-typeset .admonition.method-child,
+.md-typeset details.method-child {
+    border-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    color: rgb(196, 196, 196);
+    font-size: 14px;
+}
+
+.md-typeset .admonition.prop, .md-typeset details.prop {
+    border-color: rgb(194, 194, 194);
+    color: rgb(231, 231, 240);
+    font-size: 16px;
+    font-weight:300;
+}
+
+.md-typeset .admonition.params, .md-typeset details.params {
+    border-color: rgb(147, 124, 248);
+    color: rgb(231, 231, 240);
+    font-size: 16px;
+    font-weight:300;
+}
+
+.md-typeset .admonition.return, .md-typeset details.return {
+    border-color: rgb(248, 124, 124);
+    color: rgb(231, 231, 240);
+    font-size: 16px;
+    font-weight:300;
+}
+
+.md-typeset .normal-data {
+    color: rgb(231, 231, 240);
+    font-weight:600;
+}
+
+.md-typeset .data {
+    color: rgb(182, 145, 228);
+    font-weight:600;
+}
+
+.md-typeset .data:hover {
+    color: rgba(231, 231, 240, 0.562);
+    text-decoration: underline;
+    cursor: help;
+}
