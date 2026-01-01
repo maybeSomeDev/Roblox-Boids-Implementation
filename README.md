@@ -2,7 +2,7 @@
   
 - [Docs](https://maybesomedev.github.io/Roblox-Boids-Implementation/)
 
-- [Devforum Post](https://github.com/maybeSomeDev/Roblox-Boids-Implementation)
+- [Devforum Post](https://devforum.roblox.com/t/Roblox-Boids-Implementation)
 
 - <a href="https://www.roblox.com/games/111714118557618" title="Uncopylocked">Test Place</a>
 
@@ -20,23 +20,6 @@
 ## Showcase
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=SJ3V-Il7UO4
 " target="_blank"><img src="http://img.youtube.com/vi/SJ3V-Il7UO4/0.jpg" /></a>
-
-## Example Usage 
-<!-- [More Eaxmples](about.md) -->
-```lua
--- main
-local flockModule = game.ReplicatedStorage.FlockManager
-local flockManager = require(flockModule)
-local config = require(flockModule.Config)
-
-local manager = flockManager.new(config.testFile)
-
-local birds = workspace.Birds:GetChildren() :: { Part } -- with a LinearVelocity child
-
-manager:add(birds)
-
-manager:start()
-```
 
 ## Features
 - The core 3 rules (separation, alignment, cohesion)
