@@ -41,9 +41,6 @@ nav:
     - Setup: index.md
     - Post: post.md
 
-  - API:
-    - API Reference: api.md
-    - Data Types: data.md
-
+  - API : api.md
   - Configs: configs.md
     
