@@ -7,7 +7,7 @@
 | gridCellSize | number<br>1-50 | The size of the cell<br>Nearby Boids will be detected by forming a 3x3 (9) cells around the Boid and getting the neighbors in them<br><br>Value x 3 = **Must be bigger or equal** to the Boid's biggest detection radius<br>For example: if the Boid's biggest raidus is cohessionRadius (45) gridCellSize must be at least 15 |
 | generatedDirectionCount | number<br>5-200 | Number of sphere shaped directions<br>Used to detect obstacles by casting rays in all directions around the Boid<br><br>Recommended Value: 15-30 |
 | numberOfWorkers | number<br>0-64 | Number of Actors to split the work among |
-| flockCollisionGroup | string | The Boids collision group<br>Used to ignore each others when searching for obstacles to avoid<br><br>Adding a new Boid to the group will **overwrite its CollisionGroup** with this value." |
+| flockCollisionGroup | string | The Boids collision group<br>Used to ignore each others when searching for obstacles to avoid<br><br>Adding a new Boid to the group will **overwrite its CollisionGroup** with this value. |
 
 \frac{a}{b}
 
