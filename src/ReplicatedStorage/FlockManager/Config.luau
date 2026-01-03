@@ -20,7 +20,7 @@ m.global = {
 m.network = {
 	enable = true,
 	updateRate = 0.15,
-	clientDelayMultiplier = 15.1,
+	clientDelayMultiplier = 2.1,
 }
 
 --[[================================================================]]
