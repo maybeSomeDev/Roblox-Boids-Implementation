@@ -2,7 +2,7 @@
   
 - [Docs](https://maybesomedev.github.io/Roblox-Boids-Implementation/)
 
-- [Devforum Post](https://devforum.roblox.com/t/Roblox-Boids-Implementation)
+- [Devforum Post](https://devforum.roblox.com/t/roblox-boids-implementation)
 
 - <a href="https://www.roblox.com/games/111714118557618" title="Uncopylocked">Test Place</a>
 
